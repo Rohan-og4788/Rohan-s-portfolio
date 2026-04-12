@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import {
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiJavascript,
   SiReact,
   SiLeetcode,
@@ -11,7 +11,7 @@ import { FaAws } from 'react-icons/fa'
 
 const ICON_MAP = {
   html: SiHtml5,
-  css: SiCss3,
+  css: SiCss,
   js: SiJavascript,
   react: SiReact,
   dsa: SiLeetcode,

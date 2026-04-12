@@ -23,7 +23,15 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': [
+        'error',
+        {
+          // framer-motion: `motion.div` is not always counted as a use of `motion`
+          varsIgnorePattern: '^[A-Z_]|^motion$',
+          caughtErrorsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 ])
