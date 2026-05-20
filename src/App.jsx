@@ -62,7 +62,7 @@ export default function App() {
           <Navbar profile={PROFILE} />
 
           {/* 7. Central Routing Mainframe */}
-          <main className="flex-1 w-full mx-auto max-w-6xl pt-24 pb-12 z-10">
+          <main className="flex-1 w-full mx-auto max-w-6xl pt-24 pb-8 z-10">
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home profile={PROFILE} />} />

@@ -24,13 +24,21 @@ function LiveDemoLink({ url, className, children }) {
   )
 }
 
-export default function FeaturedProjects({ projects }) {
+export default function FeaturedProjects({ projects, compact = false }) {
   const list = projects?.length ? projects : []
 
   return (
-    <section className="relative border-t border-white/5 px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      className={`relative border-t border-white/5 px-4 sm:px-6 lg:px-8 ${
+        compact ? 'py-10' : 'py-20'
+      }`}
+    >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div
+          className={`flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end ${
+            compact ? 'mb-8' : 'mb-12'
+          }`}
+        >
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +75,11 @@ export default function FeaturedProjects({ projects }) {
           </motion.div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div
+          className={`grid gap-6 ${
+            compact ? 'sm:grid-cols-2' : 'lg:grid-cols-3'
+          }`}
+        >
           {list.map((project, i) => (
             <motion.article
               key={project.title + i}
