@@ -1,54 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Outfit', sans-serif;
   --font-inter: 'Inter', sans-serif;
-  --color-dark: #0f172a; /* Slate 900 */
-  --color-dark-card: #1e293b; /* Slate 800 */
+  --font-mono: 'Fira Code', monospace;
+  --color-dark: #070a13; /* Deep space slate */
+  --color-dark-card: rgba(13, 20, 38, 0.45); /* Deep semi-transparent space */
+  --color-cyan-glow: #06b6d4;
+  --color-violet-glow: #8b5cf6;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: 'Outfit', sans-serif;
-  background-color: var(--color-dark);
-  color: #f8fafc;
+  background-color: #070a13;
+  color: #f1f5f9;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #070a13;
 }
 
-/* Base selection color */
+/* Custom Selection Cyber Glow */
 ::selection {
-  background-color: rgba(6, 182, 212, 0.3); /* Cyan */
+  background-color: rgba(6, 182, 212, 0.25);
   color: #cffafe;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar - Cyberpunk styling */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-dark);
+  background: #070a13;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155; /* Slate 700 */
-  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569; /* Slate 600 */
+  background: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
 }
 
-/* Hide cursor on elements that handles custom outline */
-/* md:hidden blocks custom cursor and shows native on small screens */
+/* Custom cursor suppression on desktop */
 @media (min-width: 768px) {
-  body {
+  body, a, button, input, textarea, select {
     cursor: none;
   }
-  a, button, input, textarea, select {
-    cursor: none;
+}
+
+/* scanline overlay effect */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg, 
+    rgba(255, 0, 0, 0.04), 
+    rgba(0, 255, 0, 0.01), 
+    rgba(0, 0, 255, 0.04)
+  );
+  background-size: 100% 4px, 6px 100%;
+  z-index: 999;
+  opacity: 0.4;
+}
+
+/* Cyberpunk terminal text glow */
+.text-cyber-glow {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.5), 0 0 15px rgba(6, 182, 212, 0.25);
+}
+
+.text-violet-glow {
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.5), 0 0 15px rgba(139, 92, 246, 0.25);
+}
+
+.text-red-glow {
+  text-shadow: 0 0 8px rgba(244, 63, 94, 0.5), 0 0 15px rgba(244, 63, 94, 0.25);
+}
+
+/* Glassmorphism custom card borders and reflections */
+.glass-panel {
+  background: rgba(10, 15, 30, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+  background: rgba(12, 20, 38, 0.7);
+}
+
+/* Keyframes for sliding glows */
+@keyframes neon-border-flow {
+  0% { border-image-source: linear-gradient(to right, #06b6d4, #8b5cf6); }
+  50% { border-image-source: linear-gradient(to bottom, #8b5cf6, #f43f5e); }
+  100% { border-image-source: linear-gradient(to right, #f43f5e, #06b6d4); }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Tech Grid Pattern in background */
+.tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Spot hover reflection */
+.spotlight-glow {
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(6, 182, 212, 0.08), transparent 40%);
+}
+
+.spotlight-glow-violet {
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(139, 92, 246, 0.08), transparent 40%);
+}
+
+/* Audio wave animation bars */
+@keyframes shrink-grow {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+
+.audio-bar {
+  display: inline-block;
+  width: 3px;
+  height: 4px;
+  background-color: #06b6d4;
+  margin: 0 1px;
+  border-radius: 9999px;
+  transform-origin: bottom;
+}
+
+.audio-bar:nth-child(1) { animation: shrink-grow 0.6s infinite ease-in-out; }
+.audio-bar:nth-child(2) { animation: shrink-grow 0.9s infinite ease-in-out 0.15s; }
+.audio-bar:nth-child(3) { animation: shrink-grow 0.7s infinite ease-in-out 0.3s; }
+.audio-bar:nth-child(4) { animation: shrink-grow 1s infinite ease-in-out 0.45s; }
+.audio-bar:nth-child(5) { animation: shrink-grow 0.8s infinite ease-in-out 0.2s; }
+
+/* Project card spotlight variants */
+.spotlight-glow-rose {
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(244, 63, 94, 0.1), transparent 40%);
+}
+
+.spotlight-glow-amber {
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(245, 158, 11, 0.1), transparent 40%);
+}
+
+/* Light theme overrides */
+[data-theme='light'] html,
+[data-theme='light'] body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+[data-theme='light'] .scanlines {
+  opacity: 0.12;
+}
+
+[data-theme='light'] ::selection {
+  background-color: rgba(6, 182, 212, 0.2);
+  color: #0e7490;
+}
+
+@media (min-width: 768px) {
+  [data-theme='light'] body,
+  [data-theme='light'] a,
+  [data-theme='light'] button,
+  [data-theme='light'] input,
+  [data-theme='light'] textarea,
+  [data-theme='light'] select {
+    cursor: auto;
   }
 }

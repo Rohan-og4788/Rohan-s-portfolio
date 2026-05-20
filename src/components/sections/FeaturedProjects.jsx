@@ -40,7 +40,7 @@ export default function FeaturedProjects({ projects }) {
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
               Featured
             </p>
-            <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
+            <h2 data-gsap-reveal className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
               Projects that tell a story
             </h2>
             <p className="mt-3 max-w-xl text-slate-400">
