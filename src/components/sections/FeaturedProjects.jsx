@@ -24,13 +24,21 @@ function LiveDemoLink({ url, className, children }) {
   )
 }
 
-export default function FeaturedProjects({ projects }) {
+export default function FeaturedProjects({ projects, compact = false }) {
   const list = projects?.length ? projects : []
 
   return (
-    <section className="relative border-t border-white/5 px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      className={`relative border-t border-white/5 px-4 sm:px-6 lg:px-8 ${
+        compact ? 'py-10' : 'py-20'
+      }`}
+    >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div
+          className={`flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end ${
+            compact ? 'mb-8' : 'mb-12'
+          }`}
+        >
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +48,7 @@ export default function FeaturedProjects({ projects }) {
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
               Featured
             </p>
-            <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
+            <h2 data-gsap-reveal className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
               Projects that tell a story
             </h2>
             <p className="mt-3 max-w-xl text-slate-400">
@@ -67,7 +75,11 @@ export default function FeaturedProjects({ projects }) {
           </motion.div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div
+          className={`grid gap-6 ${
+            compact ? 'sm:grid-cols-2' : 'lg:grid-cols-3'
+          }`}
+        >
           {list.map((project, i) => (
             <motion.article
               key={project.title + i}

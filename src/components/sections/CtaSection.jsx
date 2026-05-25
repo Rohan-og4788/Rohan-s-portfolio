@@ -2,12 +2,20 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Mail } from 'lucide-react'
 
-export default function CtaSection({ profile }) {
+export default function CtaSection({ profile, compact = false }) {
   const mail = `mailto:${profile.email}?subject=${encodeURIComponent('Let’s collaborate')}`
 
   return (
-    <section className="relative border-t border-white/5 px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-500/15 via-slate-900/80 to-violet-600/15 p-10 shadow-2xl backdrop-blur-xl sm:p-14">
+    <section
+      className={`relative border-t border-white/5 px-4 sm:px-6 lg:px-8 ${
+        compact ? 'py-10' : 'py-24'
+      }`}
+    >
+      <div
+        className={`mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-500/15 via-slate-900/80 to-violet-600/15 shadow-2xl backdrop-blur-xl ${
+          compact ? 'p-8 sm:p-10' : 'p-10 sm:p-14'
+        }`}
+      >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(6,182,212,0.2),transparent_45%),radial-gradient(circle_at_80%_60%,rgba(139,92,246,0.18),transparent_45%)]" />
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -16,7 +24,11 @@ export default function CtaSection({ profile }) {
           transition={{ duration: 0.45 }}
           className="relative text-center"
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2
+            className={`font-extrabold tracking-tight text-white ${
+              compact ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl md:text-5xl'
+            }`}
+          >
             Let&apos;s build something{' '}
             <span className="bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">
               amazing

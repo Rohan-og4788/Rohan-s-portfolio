@@ -158,7 +158,11 @@ function TechSphere3D() {
   )
 }
 
+<<<<<<< HEAD
 export default function HeroSection({ profile }) {
+=======
+export default function HeroSection({ profile, compact = false }) {
+>>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
   const typed = useTypingCycle(profile.roles, {
     typeSpeed: 75,
     deleteSpeed: 45,
@@ -167,7 +171,15 @@ export default function HeroSection({ profile }) {
   })
 
   return (
+<<<<<<< HEAD
     <section className="relative min-h-[calc(100vh-6rem)] w-full flex items-center px-4 py-16 sm:px-6 lg:px-8">
+=======
+    <section
+      className={`relative w-full flex items-center px-4 sm:px-6 lg:px-8 ${
+        compact ? 'min-h-0 py-10 sm:py-12' : 'min-h-[calc(100vh-6rem)] py-16'
+      }`}
+    >
+>>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
       
       {/* Floating dynamic code snippets in background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
@@ -202,7 +214,11 @@ export default function HeroSection({ profile }) {
             variants={fContainer}
             initial="hidden"
             animate="show"
+<<<<<<< HEAD
             className="lg:col-span-7"
+=======
+            className={compact ? 'lg:col-span-12' : 'lg:col-span-7'}
+>>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
           >
             {/* Status availability badge */}
             <motion.div
@@ -317,7 +333,13 @@ export default function HeroSection({ profile }) {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+<<<<<<< HEAD
             className="lg:col-span-5 flex justify-center items-center relative"
+=======
+            className={`lg:col-span-5 flex justify-center items-center relative ${
+              compact ? 'hidden lg:flex' : ''
+            }`}
+>>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
           >
             <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-cyan-500/15 via-violet-500/5 to-pink-500/15 blur-3xl" />
             <TechSphere3D />
