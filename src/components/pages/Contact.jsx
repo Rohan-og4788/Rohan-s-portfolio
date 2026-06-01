@@ -174,11 +174,7 @@ export default function Contact({ profile }) {
               <div className="space-y-5">
                 <h3 className="text-lg font-extrabold text-white mb-6 font-mono tracking-wider flex items-center gap-2">
                   <span className="h-1.5 w-1.5 bg-violet-400 rounded-full" />
-<<<<<<< HEAD
                   Contact_Me
-=======
-                  HANDSHAKE_FORM
->>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
                 </h3>
 
                 <div>

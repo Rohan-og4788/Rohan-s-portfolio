@@ -18,11 +18,7 @@ export default function TimelineSection() {
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-violet-400">
             Professional Route
           </p>
-<<<<<<< HEAD
-          <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
-=======
           <h2 data-gsap-reveal className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
->>>>>>> cc317fdb9f2929f4f58be85e54d6a7a939cbd301
             Experience & Achievements
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-slate-400">
